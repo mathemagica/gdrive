@@ -26,6 +26,7 @@ func (self *Drive) List(args ListFilesArgs) (err error) {
 		fields:    []googleapi.Field{"nextPageToken", "files(id,name,md5Checksum,mimeType,size,createdTime,parents)"},
 		sortOrder: args.SortOrder,
 		maxFiles:  args.MaxFiles,
+		corpus: "DOMAIN",
 	}
 	files, err := self.listAllFiles(listArgs)
 	if err != nil {
